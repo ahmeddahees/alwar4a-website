@@ -1,0 +1,116 @@
+<?php include "../forms/upload-company.php";
+
+$comedata = "SELECT * FROM `mozf`";
+$reslut = mysqli_query($conncompany, $comedata);  
+$sql = mysqli_fetch_all($reslut, MYSQLI_ASSOC);
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>طلب للأنضمام لفريق العمل</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="icone here" rel="icon">
+    <link href="icone here" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <!-- <h1 class="logo"><a href="index.html">الورشة</a></h1> -->
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <a href="index.html" class="logo"><img src="../assets/img/logo.png" alt="" class="img-fluid"></a>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="../index.php">الرئيسية</a></li>
+                    <li><a class="nav-link scrollto" href="../index.php#about">من نحن</a></li>
+                    <li><a class="nav-link scrollto" href="../index.php#services">خدماتنا</a></li>
+                    <li><a class="nav-link scrollto" href="../index.php#team">فريق العمل</a></li>
+                    <li><a class="nav-link scrollto" href="../index.php#contact">تواصل معنا</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+
+        </div>
+    </header>
+    <!-- End Header -->
+    <?php include "../assets/pages/centerpage.php" ?>
+
+    <section class="inner-page">
+
+    <center><h1>قسم طلبات موظفين شركات </h1></center>
+   <?php foreach($sql as $mozf): ?>
+    <div style=" text-align:right; direction:rtl;" class="card">
+  <h5 class="card-header" style="color:#2a39a5;"> اسم الشركة : <?php echo $mozf['companyname'] ?> </h5>
+  <div class="card-body">
+    <p class="card-text" > <b> مجال عمل الشركة :</b>   <?php echo $mozf['mgalcompany'] ?> </p>
+    <p class="card-text" > <b> اسم طالب الخدمة او الموظف :</b>   <?php echo $mozf['mozfsent'] ?> </p>
+    <p class="card-text"> <b> رقم التليفون : </b> <?php echo $mozf['cnumber'] ?></p>
+    <p class="card-text">  <b>  الأيميل  : </b> <?php echo $mozf['compemail'] ?>  </p>
+    <p class="card-text"> <b>  موقع الشركة :</b> <?php echo $mozf['complocation'] ?> </p>
+    <p class="card-text">  <b>المهارات المطلوبة :</b><?php echo $mozf['elmharatneed'] ?>   </p>
+    <p class="card-text">  <b>وصف للوظيفة المطلوبة :</b><?php echo $mozf['wsfelwzyfa'] ?>   </p>
+    <p class="card-text">  <b>المرتب المطلوب :</b><?php echo $mozf['elmortp'] ?>   </p>
+    <p class="card-text">  <b>المؤهلات المطلوبة :</b><?php echo $mozf['elmo2halneed'] ?>   </p>
+    <p class="card-text">  <b>اي اضافات اخري :</b><?php echo $mozf['anymore'] ?>   </p>
+
+    <p class="card-text"> <b>  الوقت المناسب للتواصل : </b> <?php echo $mozf['cdate'] ?>   </p>
+  </div>
+</div>  
+<?php endforeach ?>
+</section>
+
+
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <?php include "./../assets/pages/fotter.php" ?>
+                                                 <!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="../assets/vendor/purecounter/purecounter.js"></script>
+    <script src="../assets/vendor/aos/aos.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="../assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
